@@ -1,6 +1,6 @@
 [package]
 name = "rcuninit"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2024"
 authors = ["Kevin Robert Stravers <kevin@stravers.net>"]
 description = "Cyclic Rc without new_cyclic"
