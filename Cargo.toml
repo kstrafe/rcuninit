@@ -1,0 +1,12 @@
+[package]
+name = "rcuninit"
+version = "0.1.0"
+edition = "2024"
+authors = ["Kevin Robert Stravers <kevin@stravers.net>"]
+description = "Cyclic Rc without new_cyclic"
+homepage = "https://github.com/kstrafe/rcuninit"
+repository = "https://github.com/kstrafe/rcuninit"
+keywords = ["cyclic", "rc", "pointer"]
+license = "MIT"
+
+[dependencies]
