@@ -202,7 +202,7 @@ static SANITY_CHECKED: AtomicBool = AtomicBool::new(false);
 /// creation of [RcUninit]. Note that even with sanity tests, this might still
 /// invoke undefined behavior if some detail is not caught. [Rc] could decide to
 /// reorder fields at will after some call, or do something else that
-/// invalidates up the assumptions made in this library. As such, use of
+/// invalidates the assumptions made in this library. As such, use of
 /// `RcUninit` _could_ be unsound, however unlikely. The functions on `RcUninit`
 /// are thus not marked as unsafe as `check_sanity` intends to provide
 /// sufficient shielding against potential undefined behavior.
