@@ -451,6 +451,32 @@ impl<T> RcUninit<T> {
         // that MaybeUninit has now been written to.
         unsafe { rc.assume_init() }
     }
+
+    /// Initializes the pointer and provides the weak pointer.
+    ///
+    /// # Examples #
+    ///
+    /// ```
+    /// use rcuninit::RcUninit;
+    /// use std::rc::Rc;
+    ///
+    /// unsafe {
+    ///     rcuninit::check_sanity();
+    /// }
+    ///
+    /// let uninit = RcUninit::new();
+    /// let rc: Rc<i32> = uninit.init_with(|weak| {
+    ///     // Do something with weak
+    ///     123
+    /// });
+    /// ```
+    pub fn init_with<F>(self, constructor: F) -> Rc<T>
+    where
+        F: FnOnce(Weak<T>) -> T
+    {
+        let weak = self.weak();
+        self.init(constructor(weak))
+    }
 }
 
 impl<T> Default for RcUninit<T> {
