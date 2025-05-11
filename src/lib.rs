@@ -472,7 +472,7 @@ impl<T> RcUninit<T> {
     /// ```
     pub fn init_with<F>(self, constructor: F) -> Rc<T>
     where
-        F: FnOnce(Weak<T>) -> T
+        F: FnOnce(Weak<T>) -> T,
     {
         let weak = self.weak();
         self.init(constructor(weak))
